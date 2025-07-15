@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
-import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
+import { ServicesComponent } from '../../components/services/services.component'; // <-- NOME CORRIGIDO AQUI
 import { GalleryComponent } from '../../components/gallery/gallery.component';
 import { InnovativeProductComponent } from '../../components/innovative-product/innovative-product.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  // Adicionamos todas as seções que a Home vai usar
   imports: [
     HeroComponent,
-    ServicesSectionComponent,
+    ServicesComponent, // <-- NOME CORRIGIDO AQUI
     GalleryComponent,
     InnovativeProductComponent
   ],
