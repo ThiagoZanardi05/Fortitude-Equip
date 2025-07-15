@@ -1,0 +1,87 @@
+/* Estilo geral do Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #111;
+  color: white;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* Estilo da navegação */
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-item > a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Seta para indicar dropdown */
+.arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Estrutura do Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none; /* Escondido por padrão */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  min-width: 250px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+/* Mostra o dropdown quando o mouse passa por cima do item do menu */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(-135deg); /* Gira a seta */
+}
+
+.dropdown-menu li a {
+  color: #ccc;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ff8c00; /* Cor laranja do seu design original */
+  color: white;
+}
