@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent], // <-- A MÁGICA ACONTECE AQUI
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
-export class App {
-  protected readonly title = signal('Fortitudeequip');
+export class AppComponent {
+  title = 'Fortitudeequip';
 }
