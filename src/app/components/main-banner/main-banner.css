@@ -1,16 +1,23 @@
 .main-banner-section {
-  /* Lembre-se de salvar a imagem correta na pasta src/assets */
-  background-image: url('/Fortitudeequip/src/assets/main-banner-background.jpg.jpg');
+  background-image: url('/assets/main-banner-background.jpg');
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 15rem 5rem;
   position: relative;
-  min-height: 90vh;
+  
+  /* AJUSTE DE ALTURA:
+     Usamos 'vh' (viewport height) para que a altura se adapte à tela.
+     'height: 85vh' significa que a altura do banner será 85% da altura da tela visível.
+     'min-height' garante uma altura mínima para o conteúdo não ficar espremido.
+  */
+  height: 85vh;
+  min-height: 500px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2rem; /* Adicionado um padding geral */
 }
 
 /* Camada escura para dar contraste ao texto */
@@ -25,7 +32,7 @@
 }
 
 .banner-content {
-  position: relative; /* Garante que o conteúdo fique na frente da camada escura */
+  position: relative;
   z-index: 1;
   max-width: 800px;
 }
@@ -38,13 +45,14 @@
 }
 
 .orange {
-  color: #ff8c00; /* Laranja do seu design */
+  color: #ff8c00;
 }
 
 .banner-content h2 {
   font-size: 2rem;
   font-weight: lighter;
   margin-bottom: 1.5rem;
+  text-transform: uppercase; /* Adicionado para bater com o design */
 }
 
 .banner-content p {
@@ -67,4 +75,45 @@
 
 .cta-button:hover {
   background-color: #e67e00;
+}
+
+
+/* --- CSS PARA CELULAR (Responsividade) --- */
+
+/* Esta regra se aplica a qualquer tela com largura de 768px ou menos */
+@media (max-width: 768px) {
+  
+  .main-banner-section {
+    height: 70vh; /* Diminui a altura em telas menores */
+    padding: 1rem;
+  }
+
+  .banner-content h1 {
+    font-size: 2.5rem; /* Diminui a fonte do título principal */
+  }
+
+  .banner-content h2 {
+    font-size: 1.5rem; /* Diminui a fonte do subtítulo */
+  }
+
+  .banner-content p {
+    font-size: 1rem; /* Diminui a fonte do parágrafo */
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Regra extra para telas bem pequenas */
+@media (max-width: 480px) {
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .banner-content h2 {
+    font-size: 1.2rem;
+  }
 }

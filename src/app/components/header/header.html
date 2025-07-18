@@ -2,20 +2,68 @@
   <div class="logo">
     <a href="#">FORTITUDE</a>
   </div>
-  <nav>
+
+  <nav class="desktop-nav">
     <ul class="nav-links">
       <li class="nav-item dropdown">
         <a href="#">PRODUCTS <span class="arrow"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">FLOORING</a></li> <li><a href="#">ISO CONTAINERS GYMS</a></li> <li><a href="#">M.T.P</a></li> <li><a href="#">OUTDOOR RIGS & TRIM TRAILS</a></li> <li><a href="#">FUNCTIONAL TRAINING RIGS</a></li> </ul>
+          <li><a href="#">FLOORING</a></li>
+          <li><a href="#">ISO CONTAINERS GYMS</a></li>
+          <li><a href="#">M.T.P</a></li>
+          <li><a href="#">OUTDOOR RIGS & TRIM TRAILS</a></li>
+          <li><a href="#">FUNCTIONAL TRAINING RIGS</a></li>
+        </ul>
       </li>
       <li class="nav-item dropdown">
         <a href="#">SERVICES <span class="arrow"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">BUILD & CONSTRUCTION</a></li> <li><a href="#">FACILITY DESIGN</a></li> <li><a href="#">CUSTOM BRAND</a></li> <li><a href="#">GYM EQUIPMENT & FACILITY INSTALLATION</a></li> <li><a href="#">GYM DESIGN</a></li> <li><a href="#">SERVICE, REPAIR, REFURBISHMENT & MAINTENANCE</a></li> <li><a href="#">KIT MOVES & RELOCATION SERVICES</a></li> </ul>
+          <li><a href="#">BUILD & CONSTRUCTION</a></li>
+          <li><a href="#">FACILITY DESIGN</a></li>
+          <li><a href="#">CUSTOM BRAND</a></li>
+          <li><a href="#">GYM EQUIPMENT & FACILITY INSTALLATION</a></li>
+          <li><a href="#">GYM DESIGN</a></li>
+          <li><a href="#">SERVICE, REPAIR, REFURBISHMENT & MAINTENANCE</a></li>
+          <li><a href="#">KIT MOVES & RELOCATION SERVICES</a></li>
+        </ul>
       </li>
       <li class="nav-item"><a href="#">OUR MISSION</a></li>
       <li class="nav-item"><a href="#">CONTACT</a></li>
     </ul>
   </nav>
+
+  <button class="hamburger" (click)="toggleMobileMenu()" [class.is-active]="isMobileMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="mobile-nav" [class.is-open]="isMobileMenuOpen">
+  <ul>
+    <li>
+      <a (click)="toggleSubMenu('products')" class="has-submenu">PRODUCTS <span class="mobile-arrow"></span></a>
+      <ul class="mobile-submenu" [class.is-open]="openMobileSubMenu === 'products'">
+        <li><a href="#">FLOORING</a></li>
+        <li><a href="#">ISO CONTAINERS GYMS</a></li>
+        <li><a href="#">M.T.P</a></li>
+        <li><a href="#">OUTDOOR RIGS & TRIM TRAILS</a></li>
+        <li><a href="#">FUNCTIONAL TRAINING RIGS</a></li>
+      </ul>
+    </li>
+    <li>
+      <a (click)="toggleSubMenu('services')" class="has-submenu">SERVICES <span class="mobile-arrow"></span></a>
+      <ul class="mobile-submenu" [class.is-open]="openMobileSubMenu === 'services'">
+        <li><a href="#">BUILD & CONSTRUCTION</a></li>
+        <li><a href="#">FACILITY DESIGN</a></li>
+        <li><a href="#">CUSTOM BRAND</a></li>
+        <li><a href="#">GYM EQUIPMENT & FACILITY INSTALLATION</a></li>
+        <li><a href="#">GYM DESIGN</a></li>
+        <li><a href="#">SERVICE, REPAIR, REFURBISHMENT & MAINTENANCE</a></li>
+        <li><a href="#">KIT MOVES & RELOCATION SERVICES</a></li>
+      </ul>
+    </li>
+    <li><a href="#">OUR MISSION</a></li>
+    <li><a href="#">CONTACT</a></li>
+  </ul>
+</nav>
 </header>

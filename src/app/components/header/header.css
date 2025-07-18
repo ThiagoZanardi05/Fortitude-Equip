@@ -1,11 +1,13 @@
-/* Estilo geral do Header */
+/* --- ESTILOS GERAIS DO HEADER --- */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   background-color: #111;
   color: white;
+  position: relative; /* Adicionado para o menu mobile */
+  z-index: 1000; /* Garante que o header fique na frente de outros conteúdos */
 }
 
 .logo a {
@@ -15,8 +17,8 @@
   text-decoration: none;
 }
 
-/* Estilo da navegação */
-.nav-links {
+/* --- NAVEGAÇÃO DESKTOP --- */
+.desktop-nav .nav-links {
   list-style: none;
   display: flex;
   margin: 0;
@@ -24,7 +26,7 @@
   gap: 2rem;
 }
 
-.nav-item > a {
+.desktop-nav .nav-item > a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
@@ -34,7 +36,6 @@
   align-items: center;
 }
 
-/* Seta para indicar dropdown */
 .arrow {
   border: solid white;
   border-width: 0 2px 2px 0;
@@ -45,32 +46,29 @@
   transition: transform 0.3s ease;
 }
 
-/* Estrutura do Dropdown */
 .dropdown {
   position: relative;
 }
 
 .dropdown-menu {
-  display: none; /* Escondido por padrão */
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #222;
   list-style: none;
   padding: 0.5rem 0;
-  margin: 0;
+  margin-top: 10px; /* Pequeno espaço */
   min-width: 250px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  z-index: 100;
 }
 
-/* Mostra o dropdown quando o mouse passa por cima do item do menu */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
 .dropdown:hover .arrow {
-  transform: rotate(-135deg); /* Gira a seta */
+  transform: rotate(-135deg);
 }
 
 .dropdown-menu li a {
@@ -82,6 +80,146 @@
 }
 
 .dropdown-menu li a:hover {
-  background-color: #ff8c00; /* Cor laranja do seu design original */
+  background-color: #ff8c00;
   color: white;
+}
+
+/* --- ESTILOS RESPONSIVOS --- */
+.hamburger {
+  display: none; /* Escondido por padrão no desktop */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-nav {
+  display: none; /* Escondido por padrão */
+}
+
+
+/* src/app/components/header/header.css */
+
+/* --- MEDIA QUERY PARA CELULAR --- */
+/* Regras aplicadas em telas de 768px ou menos */
+@media (max-width: 768px) {
+  
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    z-index: 1001; /* Garante que o botão fique na frente do menu */
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Começa exatamente abaixo da barra do header */
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    z-index: 1000; /* Garante que o menu fique na frente do banner */
+
+    /* NOVA ANIMAÇÃO: mais estável */
+    overflow: hidden; /* Esconde o conteúdo que transborda */
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .mobile-nav.is-open {
+    /* Define uma altura máxima grande o suficiente para mostrar todo o conteúdo */
+    max-height: 500px; 
+  }
+
+  .mobile-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-top: 1px solid #333; /* Adiciona uma linha divisória */
+  }
+
+  .mobile-nav a:hover {
+    background-color: #ff8c00;
+  }
+
+  /* Animação do botão hambúrguer para um "X" */
+  .hamburger.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Estilos adicionais para o novo menu mobile com sub-menus */
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .mobile-nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-top: 1px solid #333;
+  }
+  
+  .mobile-nav ul li a.has-submenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobile-arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(45deg);
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #2c2c2c; /* Um pouco mais claro para diferenciar */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+  }
+  
+  .mobile-submenu.is-open {
+    max-height: 500px; /* Altura suficiente para mostrar todos os itens */
+  }
+
+  .mobile-submenu li a {
+    font-size: 1rem; /* Fonte menor para sub-itens */
+    padding: 0.8rem 2rem;
+    text-align: center;
+    border-top: 1px solid #444;
+  }
 }
