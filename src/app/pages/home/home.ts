@@ -1,25 +1,23 @@
-// src/app/pages/home/home.ts
-
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Adicionado para diretivas como *ngIf
-import { Hero } from '../../components/hero/hero'; // Corrigido
-import { ServicesSection } from '../../components/services-section/services-section'; // Corrigido
-import { Gallery } from '../../components/gallery/gallery'; // Corrigido
-import { InnovativeProduct } from '../../components/innovative-product/innovative-product'; // Corrigido
+import { CommonModule } from '@angular/common';
+import { MainBanner } from '../../components/main-banner/main-banner'; // Importamos o banner
+import { ServicesSection } from '../../components/services-section/services-section';
+import { Gallery } from '../../components/gallery/gallery';
+import { InnovativeProduct } from '../../components/innovative-product/innovative-product';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    Hero,
+    MainBanner, // Dizemos ao Home que o Banner será usado aqui
     ServicesSection,
     Gallery,
     InnovativeProduct
   ],
-  templateUrl: './home.html', // Corrigido
-  styleUrl: './home.css'      // Corrigido
+  templateUrl: './home.html',
+  styleUrl: './home.css'
 })
-export class Home { // Corrigido
+export class Home {
 
 }

@@ -1,0 +1,70 @@
+.main-banner-section {
+  /* Lembre-se de salvar a imagem correta na pasta src/assets */
+  background-image: url('/Fortitudeequip/src/assets/main-banner-background.jpg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 15rem 5rem;
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Camada escura para dar contraste ao texto */
+.main-banner-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.banner-content {
+  position: relative; /* Garante que o conteúdo fique na frente da camada escura */
+  z-index: 1;
+  max-width: 800px;
+}
+
+.banner-content h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.orange {
+  color: #ff8c00; /* Laranja do seu design */
+}
+
+.banner-content h2 {
+  font-size: 2rem;
+  font-weight: lighter;
+  margin-bottom: 1.5rem;
+}
+
+.banner-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e67e00;
+}
