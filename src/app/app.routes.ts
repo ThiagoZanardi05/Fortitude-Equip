@@ -1,6 +1,8 @@
+// src/app/app.routes.ts
+
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { Home } from './pages/home/home'; // Corrigido
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent}
+    { path: '', component: Home } // Corrigido
 ];

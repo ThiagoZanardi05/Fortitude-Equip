@@ -1,15 +1,21 @@
+// src/app/app.ts
+
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { Header } from './components/header/header'; // Corrigido
+import { Footer } from './components/footer/footer'; // Corrigido
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent], // <-- A MÁGICA ACONTECE AQUI
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    RouterOutlet,
+    Header, // Corrigido
+    Footer  // Corrigido
+  ],
+  templateUrl: './app.html', // Corrigido
+  styleUrl: './app.css'     // Corrigido
 })
-export class AppComponent {
+export class App { // Corrigido para corresponder ao seu main.ts e app.spec.ts
   title = 'Fortitudeequip';
 }

@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-services-section',
-  imports: [],
+  standalone: true, // Adicionado
+  imports: [CommonModule], // Adicionado
   templateUrl: './services-section.html',
   styleUrl: './services-section.css'
 })

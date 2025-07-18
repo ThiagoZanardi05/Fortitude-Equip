@@ -1,21 +1,25 @@
+// src/app/pages/home/home.ts
+
 import { Component } from '@angular/core';
-import { HeroComponent } from '../../components/hero/hero.component';
-import { ServicesComponent } from '../../components/services/services.component'; // <-- NOME CORRIGIDO AQUI
-import { GalleryComponent } from '../../components/gallery/gallery.component';
-import { InnovativeProductComponent } from '../../components/innovative-product/innovative-product.component';
+import { CommonModule } from '@angular/common'; // Adicionado para diretivas como *ngIf
+import { Hero } from '../../components/hero/hero'; // Corrigido
+import { ServicesSection } from '../../components/services-section/services-section'; // Corrigido
+import { Gallery } from '../../components/gallery/gallery'; // Corrigido
+import { InnovativeProduct } from '../../components/innovative-product/innovative-product'; // Corrigido
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeroComponent,
-    ServicesComponent, // <-- NOME CORRIGIDO AQUI
-    GalleryComponent,
-    InnovativeProductComponent
+    CommonModule,
+    Hero,
+    ServicesSection,
+    Gallery,
+    InnovativeProduct
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './home.html', // Corrigido
+  styleUrl: './home.css'      // Corrigido
 })
-export class HomeComponent {
+export class Home { // Corrigido
 
 }

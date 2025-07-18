@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  standalone: true, // Adicionado
+  imports: [CommonModule], // Adicionado para diretivas
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
