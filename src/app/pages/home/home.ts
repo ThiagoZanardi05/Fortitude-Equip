@@ -4,14 +4,18 @@ import { MainBanner } from '../../components/main-banner/main-banner'; // Import
 import { ServicesSection } from '../../components/services-section/services-section';
 import { Gallery } from '../../components/gallery/gallery';
 import { InnovativeProduct } from '../../components/innovative-product/innovative-product';
+import { FeatureSection } from '../../components/feature-section/feature-section';
+import { Cta } from '../../components/cta/cta';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    MainBanner, // Dizemos ao Home que o Banner será usado aqui
+    FeatureSection,
+    MainBanner, 
     ServicesSection,
+    Cta,
     Gallery,
     InnovativeProduct
   ],

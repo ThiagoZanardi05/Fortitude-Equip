@@ -1,0 +1,69 @@
+.feature-section-full {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 4rem 2rem;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+}
+
+/* Camada escura que fica entre a imagem de fundo e o texto para dar contraste */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* O conteúdo do texto fica na camada da frente */
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.content-wrapper h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.content-wrapper p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* --- AJUSTES PARA CELULAR --- */
+@media (max-width: 768px) {
+  .feature-section-full {
+    min-height: 60vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .content-wrapper h2 {
+    font-size: 2rem;
+  }
+
+  .content-wrapper p {
+    font-size: 1rem;
+  }
+}

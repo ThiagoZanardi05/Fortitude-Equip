@@ -1,0 +1,117 @@
+.services-container {
+  padding: 5rem 2rem;
+  text-align: center;
+  background-color: #f8f9fa; /* Um fundo cinza um pouco mais claro */
+}
+
+.services-container h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: #222;
+}
+
+.services-grid {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1.5rem;
+  
+  /*
+    NOVA LÓGICA DE GRADE RESPONSIVA:
+    - Esta linha cria uma grade mágica.
+    - O navegador criará quantas colunas puder, com um tamanho mínimo de 320px.
+    - Em telas grandes, caberão 3 colunas. Em tablets, 2. Em celulares, 1.
+    - Tudo isso sem precisar de @media queries complexas.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Alinha o conteúdo na base */
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: left;
+  aspect-ratio: 4 / 3; /* Proporção 4:3 para todos os cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.1) 70%);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+}
+
+.card:hover::before {
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.2) 80%);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-content h3 {
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  /* Lógica para mostrar o parágrafo no hover */
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.4s ease, max-height 0.4s ease, margin-top 0.4s ease;
+}
+
+.card:hover .card-content p {
+  opacity: 0.9;
+  max-height: 100px;
+  margin-top: 1rem;
+}
+
+/* Esconde o parágrafo nos cards que não têm descrição */
+.card-refurbished p,
+.card-custom p,
+.card-mobile p {
+  display: none;
+}
+
+/* --- Imagens de Fundo --- */
+.card-build { background-image: url('/assets/main-banner-background.jpg'); }
+.card-installation { background-image: url('/assets/main-banner-background.jpg'); }
+.card-refurbished { background-image: url('/assets/main-banner-background.jpg'); }
+.card-custom { background-image: url('/assets/main-banner-background.jpg'); }
+.card-mobile { background-image: url('/assets/main-banner-background.jpg'); }
+
+/* Pequeno ajuste para garantir que os parágrafos apareçam sempre no celular */
+@media (max-width: 768px) {
+  .card-content p {
+    opacity: 0.9;
+    max-height: 100px;
+    margin-top: 1rem;
+  }
+}
