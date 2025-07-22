@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-feature-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgClass],
   templateUrl: './feature-section.html',
   styleUrl: './feature-section.css'
 })
@@ -13,4 +13,10 @@ export class FeatureSection {
   @Input() text: string = '';
   @Input() buttonText: string = '';
   @Input() imageUrl: string = '';
+
+  isDetailsVisible = false;
+
+  toggleDetails() {
+    this.isDetailsVisible = !this.isDetailsVisible;
+  }
 }
