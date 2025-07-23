@@ -1,18 +1,12 @@
-<section class="feature-card" [style.backgroundImage]="'url(' + imageUrl + ')'">
-  
-  <div class="image-panel-content" [class.hidden]="isDetailsVisible">
-    <div class="overlay"></div>
-    <div class="panel-content">
-      <h2>{{ title }}</h2>
-      <button class="cta-button" (click)="toggleDetails()">{{ buttonText }}</button>
+<div class="sticky-card-wrapper">
+  <div class="card-content">
+    <div class="image-pane" [style.backgroundImage]="'url(' + imageUrl + ')'"></div>
+    <div class="text-pane">
+      <div class="text-wrapper">
+        <h2>{{ title }}</h2>
+        <div [innerHTML]="text"></div>
+        <button class="cta-button">{{ buttonText }}</button>
+      </div>
     </div>
   </div>
-
-  <div class="text-panel-content" [class.visible]="isDetailsVisible">
-    <div class="panel-content">
-      <div [innerHTML]="text"></div>
-      <button class="back-button" (click)="toggleDetails()">← Back</button>
-    </div>
-  </div>
-
-</section>
+</div>

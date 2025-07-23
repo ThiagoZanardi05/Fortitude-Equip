@@ -1,0 +1,5 @@
+.scrolling-container {
+  position: relative;
+  /* A altura total será a altura de um card vezes o número de cards */
+  /* Isso cria o espaço necessário para a rolagem */
+}

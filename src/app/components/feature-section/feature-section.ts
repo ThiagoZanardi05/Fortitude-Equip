@@ -13,10 +13,4 @@ export class FeatureSection {
   @Input() text: string = '';
   @Input() buttonText: string = '';
   @Input() imageUrl: string = '';
-
-  isDetailsVisible = false;
-
-  toggleDetails() {
-    this.isDetailsVisible = !this.isDetailsVisible;
-  }
 }

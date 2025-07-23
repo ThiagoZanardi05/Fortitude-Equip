@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainBanner } from '../../components/main-banner/main-banner';
+import { ScrollingFeatures } from '../../components/scrolling-features/scrolling-features';
 import { FeatureSection } from '../../components/feature-section/feature-section';
-import { TilesFeaturesGrid } from '../../components/tiles-features-grid/tiles-features-grid';
-import { Cta } from '../../components/cta/cta';
 
 @Component({
   selector: 'app-flooring',
   standalone: true,
   imports: [
     CommonModule,
-    MainBanner,
-    FeatureSection,
-    TilesFeaturesGrid,
-    Cta
+    ScrollingFeatures, // Importa o novo wrapper
+    FeatureSection     // Importa o card animado
   ],
   templateUrl: './flooring.html',
   styleUrl: './flooring.css'
